@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Laboratory_Session1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accountant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastLoginIn" Type="time" Precision="2" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeLogin" Type="smalldatetime" />
+          <Property Name="SuccessLoginIN" Type="bit" />
+        </EntityType>
+        <EntityType Name="InsuranceCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxpayerIdentificationNumber" Type="int" />
+          <Property Name="RegistrationAccount" Type="int" />
+          <Property Name="BankIdentificationCode" Type="int" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdService" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="IdPetient" Type="int" />
+          <Property Name="IdLaboratoryAssistant" Type="int" />
+          <Property Name="DeadLine" Type="smalldatetime" />
+          <Property Name="MeanDeviation" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumberProbirki" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Passport" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="IPN" Type="int" />
+          <Property Name="TypeOfIPN" Type="int" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastLoginIn" Type="smalldatetime" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <Association Name="FK_Order_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdPetient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdLaboratoryAssistant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Laboratory_Session1ModelContainer">
+          <EntitySet Name="Accountant" EntityType="Self.Accountant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InsuranceCompany" EntityType="Self.InsuranceCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Order_Patient" Association="Self.FK_Order_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Service" Association="Self.FK_Order_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Laboratory_Session1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Laboratory_Session1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accountant" EntityType="Laboratory_Session1Model.Accountant" />
+          <EntitySet Name="Activity" EntityType="Laboratory_Session1Model.Activity" />
+          <EntitySet Name="InsuranceCompany" EntityType="Laboratory_Session1Model.InsuranceCompany" />
+          <EntitySet Name="Order" EntityType="Laboratory_Session1Model.Order" />
+          <EntitySet Name="Patient" EntityType="Laboratory_Session1Model.Patient" />
+          <EntitySet Name="Service" EntityType="Laboratory_Session1Model.Service" />
+          <EntitySet Name="sysdiagrams" EntityType="Laboratory_Session1Model.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Laboratory_Session1Model.User" />
+          <AssociationSet Name="FK_Order_Patient" Association="Laboratory_Session1Model.FK_Order_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Service" Association="Laboratory_Session1Model.FK_Order_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="Laboratory_Session1Model.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Accountant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginIn" Type="Time" Precision="2" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeLogin" Type="DateTime" Precision="0" />
+          <Property Name="SuccessLoginIN" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="InsuranceCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxpayerIdentificationNumber" Type="Int32" />
+          <Property Name="RegistrationAccount" Type="Int32" />
+          <Property Name="BankIdentificationCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdService" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="IdPetient" Type="Int32" />
+          <Property Name="IdLaboratoryAssistant" Type="Int32" />
+          <Property Name="DeadLine" Type="DateTime" Precision="0" />
+          <Property Name="MeanDeviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumberProbirki" Type="Int32" />
+          <NavigationProperty Name="Patient" Relationship="Laboratory_Session1Model.FK_Order_Patient" FromRole="Order" ToRole="Patient" />
+          <NavigationProperty Name="Service" Relationship="Laboratory_Session1Model.FK_Order_Service" FromRole="Order" ToRole="Service" />
+          <NavigationProperty Name="User" Relationship="Laboratory_Session1Model.FK_Order_User" FromRole="Order" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IPN" Type="Int32" />
+          <Property Name="TypeOfIPN" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="Laboratory_Session1Model.FK_Order_Patient" FromRole="Patient" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="Laboratory_Session1Model.FK_Order_Service" FromRole="Service" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginIn" Type="DateTime" Precision="0" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="Laboratory_Session1Model.FK_Order_User" FromRole="User" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Order_Patient">
+          <End Type="Laboratory_Session1Model.Patient" Role="Patient" Multiplicity="0..1" />
+          <End Type="Laboratory_Session1Model.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdPetient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Service">
+          <End Type="Laboratory_Session1Model.Service" Role="Service" Multiplicity="0..1" />
+          <End Type="Laboratory_Session1Model.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_User">
+          <End Type="Laboratory_Session1Model.User" Role="User" Multiplicity="0..1" />
+          <End Type="Laboratory_Session1Model.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdLaboratoryAssistant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Laboratory_Session1ModelContainer" CdmEntityContainer="Laboratory_Session1Entities">
+          <EntitySetMapping Name="Accountant">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.Accountant">
+              <MappingFragment StoreEntitySet="Accountant">
+                <ScalarProperty Name="LastLoginIn" ColumnName="LastLoginIn" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="SuccessLoginIN" ColumnName="SuccessLoginIN" />
+                <ScalarProperty Name="TimeLogin" ColumnName="TimeLogin" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsuranceCompany">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.InsuranceCompany">
+              <MappingFragment StoreEntitySet="InsuranceCompany">
+                <ScalarProperty Name="BankIdentificationCode" ColumnName="BankIdentificationCode" />
+                <ScalarProperty Name="RegistrationAccount" ColumnName="RegistrationAccount" />
+                <ScalarProperty Name="TaxpayerIdentificationNumber" ColumnName="TaxpayerIdentificationNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="NumberProbirki" ColumnName="NumberProbirki" />
+                <ScalarProperty Name="MeanDeviation" ColumnName="MeanDeviation" />
+                <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
+                <ScalarProperty Name="IdLaboratoryAssistant" ColumnName="IdLaboratoryAssistant" />
+                <ScalarProperty Name="IdPetient" ColumnName="IdPetient" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="TypeOfIPN" ColumnName="TypeOfIPN" />
+                <ScalarProperty Name="IPN" ColumnName="IPN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="Laboratory_Session1Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="LastLoginIn" ColumnName="LastLoginIn" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

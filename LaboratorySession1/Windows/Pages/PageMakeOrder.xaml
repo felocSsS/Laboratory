@@ -1,0 +1,105 @@
+﻿<Page x:Class="LaboratorySession1.Windows.Pages.PageMakeOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaboratorySession1.Windows.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="PageMakeOrder">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        
+        <Grid 
+              Width="350"
+              Height="300"
+              VerticalAlignment="Top"
+              Margin="0 30 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Height="25"
+                       Text="Номер пробирки:   "
+                       TextAlignment="Right"
+                       FontSize="18"/>
+            <TextBlock Height="25"
+                       Text="ФИО: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+            <TextBlock Height="25"
+                       Text="Услуга: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="2"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="0"
+                     Height="25"
+                     Width="180"
+                     Name="tbProbirka"
+                     FontSize="16"
+                     />
+            <ComboBox Grid.Column="1"
+                      Grid.Row="1"
+                      Height="25"
+                      Width="180"
+                      Name="CmbName"/>
+            <ComboBox Grid.Column="1"
+                      Grid.Row="2"
+                      Height="25"
+                      Width="180"
+                      Name="CmbService"/>
+            <TextBlock Height="25"
+                       Grid.Column="0"
+                       Grid.Row="3"
+                       Text="Дата окончания услуги: "
+                       TextAlignment="Right"
+                       FontSize="18"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="3"
+                     Height="25"
+                     Width="180"
+                     Name="tbData"
+                     FontSize="16"
+                     />
+        </Grid>
+        <Grid Grid.Row="2"
+              Height="80"
+              Width="300">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button
+                    Background="DodgerBlue"
+                    Height="40"
+                    Width="130"
+                    Content="Сохранить заказ"
+                    Name="btnSave"
+                    Click="btnSave_Click"/>
+            <Button 
+                    Background="Red"
+                    Height="40"
+                    Width="130"
+                    Content="Добавить пациента"
+                    Grid.Column="1"
+                    Name="AddPatient"
+                    Click="AddPatient_Click"/>
+        </Grid>
+    </Grid>
+</Page>

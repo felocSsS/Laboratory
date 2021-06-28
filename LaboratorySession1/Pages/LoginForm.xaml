@@ -1,0 +1,103 @@
+﻿<Page x:Class="LaboratorySession1.Pages.LoginForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaboratorySession1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginForm">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="52*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Image
+            Grid.Row="0"
+            Source="/Images/logo.png"
+            Height="150"
+            VerticalAlignment="Top"
+            />
+        </Grid>
+        <Grid Grid.Row="1"
+              Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                VerticalAlignment="Center"
+                Height="30"
+                Text="Username:"
+                TextAlignment="Center"
+                FontSize="20"
+                />
+            <TextBox
+                Name="tbLogin"
+                Grid.Column="1"
+                FontSize="16"
+                Width="200"
+                Margin="0,0,19,0"
+                
+                />
+        </Grid>
+        <Grid Grid.Row="2"
+              Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                VerticalAlignment="Center"
+                Height="30"
+                Text="Password:"
+                TextAlignment="Center"
+                FontSize="20"
+                />
+            <PasswordBox
+                Name="pbPassword"
+                Grid.Column="1"
+                FontSize="20"
+                Width="200" 
+                Margin="0,0,19,0"
+                />
+        </Grid>
+        <Grid Grid.Row="3"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1"
+                    Content="Sing In"
+                    Background="DodgerBlue"
+                    Width="150"
+                    Height="40"
+                    Name="btnSingIn"
+                    Click="btnSingIn_Click"/>
+            <Button Grid.Column="2"
+                    Width="150"
+                    Height="40"
+                    Content="Exit"
+                    Background="Red"
+                    Name="btnExit"
+                    Click="btnExit_Click"/>
+        </Grid>
+        <Button
+            Grid.Row="4"
+            Height="40"
+            Width="250"
+            Content="Посмотреть историю входов"
+            FontSize="17"
+            Background="Aqua"
+            Name="History"
+            Click="History_Click"/>
+    </Grid>
+</Page>
