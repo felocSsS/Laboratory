@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Other\source\repos\LaboratorySession1\LaboratorySession1\obj\Debug\
+D:\Programming\Laboratory\LaboratorySession1\obj\Debug\
 LaboratorySession1
 none
 false
 DEBUG;TRACE
-C:\Users\Other\source\repos\LaboratorySession1\LaboratorySession1\App.xaml
+D:\Programming\Laboratory\LaboratorySession1\App.xaml
 7-390285648
 2-290982251
 26-661721722
-18360746561
+182114080166
 MainWindow.xaml;Pages\HistoryForm.xaml;Pages\LaborantForm.xaml;Pages\LoginForm.xaml;Windows\AddOrder.xaml;Windows\Pages\PageAddPAtient.xaml;Windows\Pages\PageMakeOrder.xaml;
 
 True

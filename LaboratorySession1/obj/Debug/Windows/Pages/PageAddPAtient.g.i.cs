@@ -41,7 +41,7 @@ namespace LaboratorySession1.Windows.Pages {
     public partial class PageAddPAtient : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 71 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 77 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox tbName;
         
@@ -49,7 +49,7 @@ namespace LaboratorySession1.Windows.Pages {
         #line hidden
         
         
-        #line 77 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 84 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox tbAge;
         
@@ -57,7 +57,7 @@ namespace LaboratorySession1.Windows.Pages {
         #line hidden
         
         
-        #line 83 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 91 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox tbPassport;
         
@@ -65,7 +65,7 @@ namespace LaboratorySession1.Windows.Pages {
         #line hidden
         
         
-        #line 89 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 98 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox tbEmail;
         
@@ -73,7 +73,7 @@ namespace LaboratorySession1.Windows.Pages {
         #line hidden
         
         
-        #line 95 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 105 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox tbNumberStrazovania;
         
@@ -81,7 +81,7 @@ namespace LaboratorySession1.Windows.Pages {
         #line hidden
         
         
-        #line 101 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 112 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox tbPhone;
         
@@ -89,7 +89,7 @@ namespace LaboratorySession1.Windows.Pages {
         #line hidden
         
         
-        #line 116 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 128 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnSave;
         
@@ -97,7 +97,7 @@ namespace LaboratorySession1.Windows.Pages {
         #line hidden
         
         
-        #line 124 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+        #line 137 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnback;
         
@@ -155,7 +155,7 @@ namespace LaboratorySession1.Windows.Pages {
             case 7:
             this.btnSave = ((System.Windows.Controls.Button)(target));
             
-            #line 117 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+            #line 129 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
             this.btnSave.Click += new System.Windows.RoutedEventHandler(this.btnSave_Click);
             
             #line default
@@ -164,7 +164,7 @@ namespace LaboratorySession1.Windows.Pages {
             case 8:
             this.btnback = ((System.Windows.Controls.Button)(target));
             
-            #line 125 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
+            #line 138 "..\..\..\..\Windows\Pages\PageAddPAtient.xaml"
             this.btnback.Click += new System.Windows.RoutedEventHandler(this.btnback_Click);
             
             #line default
