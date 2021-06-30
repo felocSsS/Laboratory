@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:LaboratorySession1.Windows.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="400"
-      Title="PageMakeOrder">
+      Title="Сделать заказ">
 
     <Grid>
         <Grid.RowDefinitions>

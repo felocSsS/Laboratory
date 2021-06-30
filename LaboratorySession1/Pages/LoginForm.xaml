@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:LaboratorySession1.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LoginForm">
+      Title="Форма авторизации">
 
     <Grid>
         <Grid.RowDefinitions>
