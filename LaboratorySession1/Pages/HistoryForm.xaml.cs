@@ -1,19 +1,9 @@
 ﻿using LaboratorySession1.DataBase;
 using LaboratorySession1.SupClasses;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LaboratorySession1.Pages
 {
@@ -22,7 +12,6 @@ namespace LaboratorySession1.Pages
     /// </summary>
     public partial class HistoryForm : Page
     {
-
         public HistoryForm()
         {
             InitializeComponent();
@@ -32,6 +21,38 @@ namespace LaboratorySession1.Pages
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             FrameClass.frm.GoBack();
+        }
+
+        private void HistoryDataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            dynamic row = e.Row.Item;
+            // для 1 элемента
+            if ((row.Id + 1) != 0 && (row.Id + 1) % 3 != 0)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Red);
+            }
+            else if ((row.Id + 1) == 0 && (row.Id + 1) % 3 != 0)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Red);
+            }
+            // для 3 элемента
+            if ((row.Id + 1) != 0 && (row.Id + 1) % 3 == 0)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Blue);
+            }
+            else if ((row.Id + 1) == 0 && (row.Id + 1) % 3 == 0)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Blue);
+            }
+            // для 2 элемента 
+            if ((row.Id + 1) != 0 && (row.Id + 2) % 3 == 0)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Yellow);
+            }
+            else if ((row.Id + 1) == 0 && (row.Id + 2) % 3 != 0)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Yellow);
+            }
         }
     }
 }

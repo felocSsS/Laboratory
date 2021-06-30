@@ -18,15 +18,18 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="#498c51"/>
+        </Grid.Background>
         <Image
             Source="/Images/laborant_1.jpeg"/>
         <TextBlock
             Grid.Column="1"
             Height="40"
-            Width="400"
             Text="Ту будет имя"
             FontSize="17"
-            Name="tbName"/>
+            Name="tbName"
+            Margin="0 0 200 0"/>
         <Button
             Grid.Column="2"
             Grid.Row="2"
@@ -34,7 +37,6 @@
             Height="40"
             Content="Сделать заказ"
             FontSize="17"
-            Background="Aqua"
             Name="btnOrder"
             Click="btnOrder_Click"/>
         <Button
@@ -44,7 +46,6 @@
             HorizontalAlignment="Right"
             Margin="0 0 10 60"
             Content="Назад"
-            Background="Aqua"
             Name="Btn_Back"
             Click="Btn_Back_Click"/>
     </Grid>

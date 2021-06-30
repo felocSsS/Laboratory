@@ -27,17 +27,19 @@
                   CanUserSortColumns="True"
                   AutoGenerateColumns="False"
                   VerticalScrollBarVisibility="Auto"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  EnableRowVirtualization="False"
+                  LoadingRow="HistoryDataGrid_LoadingRow">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Время авторизации" 
-                                    Width="1*"
-                                    Binding="{Binding TimeLogin}"/>
                 <DataGridTextColumn Header="Логин" 
                                     Width="1*"
                                     Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Удачный вход" 
                                     Width="1*"
                                     Binding="{Binding SuccessLoginIN}"/>
+                <DataGridTextColumn Header="Время авторизации" 
+                                    Width="1*"
+                                    Binding="{Binding TimeLoginIN}"/>
             </DataGrid.Columns>
         </DataGrid>
         

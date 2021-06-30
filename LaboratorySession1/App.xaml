@@ -13,6 +13,10 @@
                                     CornerRadius="5"
                                     Background="#76e383"
                                     BorderBrush="Black"/>
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Padding="10,5,0,0"
+                                          Background="{x:Null}"
+                                          VerticalContentAlignment="Top"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -27,6 +31,10 @@
                                     CornerRadius="5"
                                     Background="#76e383"
                                     BorderBrush="Black"/>
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Padding="10,5,0,0"
+                                          Background="{x:Null}"
+                                          VerticalContentAlignment="Top"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
